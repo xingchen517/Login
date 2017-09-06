@@ -50,8 +50,8 @@ namespace Login
                 }
                 else
                 {
-                    name.SendKeys("zhenzhen.fu");
-                    pwd.SendKeys("Gjk_123456");
+                    name.SendKeys(UserName);
+                    pwd.SendKeys(Password);
 
                     login.Click();//.SendKeys("Cheese");                
                 }
@@ -71,9 +71,9 @@ namespace Login
 
         public static string StartUrl => ConfigurationManager.AppSettings["start_url"] ?? "http://172.16.96.100:8080/am/page/portal/realm/2e0d1ff9-c070-4e05-a07e-23325461e9db/login/pc/index.html?stage=1&language=en-US";
 
-        public static string UserName=> ConfigurationManager.AppSettings["name"] ?? "zhenzhen.fu";
+        public static string UserName=> ConfigurationManager.AppSettings["name"] ?? "test";
 
-        public static string Password => ConfigurationManager.AppSettings["password"] ?? "Gjk_123456";
+        public static string Password => ConfigurationManager.AppSettings["password"] ?? "123456";
 
         public static string Explore=> ConfigurationManager.AppSettings["explorer"] ?? "chrome";
 
