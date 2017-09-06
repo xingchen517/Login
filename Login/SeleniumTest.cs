@@ -21,8 +21,7 @@ namespace Login
             {
                 Console.WriteLine(@"Connected!");
                 return;
-            }
-            //var url = @"http://172.16.96.100:8080/am/page/portal/realm/2e0d1ff9-c070-4e05-a07e-23325461e9db/login/pc/index.html?stage=2&revisit=false&language=en-US";
+            }            
             IWebDriver driver = null;
             if (Explore.ToLower() == "chrome")
             {
