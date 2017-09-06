@@ -66,7 +66,6 @@ namespace Login
             }
 
             Console.WriteLine($"IsNetConnected:{IsNetConnected}");
-            //Console.WriteLine(@"Page title is: " + driver.Title);
             driver.Quit();
         }
 
