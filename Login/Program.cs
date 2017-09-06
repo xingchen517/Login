@@ -14,7 +14,11 @@ namespace Login
         [STAThread]
         static void Main()
         {
-            SeleniumTest.Run();
+            int retry = SeleniumTest.Retry;
+            while (!SeleniumTest.Run()&&retry-->0)
+            {
+                Console.WriteLine($"going to retry::{SeleniumTest.Retry-retry+1}");
+            }            
         }
     }
 }

@@ -15,12 +15,12 @@ namespace Login
 {
     class SeleniumTest
     {
-        public static void Run()
+        public static bool Run()
         {
             if (IsNetConnected)
             {
                 Console.WriteLine(@"Connected!");
-                return;
+                return true;
             }            
             IWebDriver driver = null;
             if (Explore.ToLower() == "chrome")
@@ -64,9 +64,10 @@ namespace Login
             {
                 Console.WriteLine(ex.Message);
             }
-
-            Console.WriteLine($"IsNetConnected:{IsNetConnected}");
+            var connected = IsNetConnected;
+            Console.WriteLine($"IsNetConnected:{connected}");
             driver.Quit();
+            return connected;
         }
 
         public static string StartUrl => ConfigurationManager.AppSettings["start_url"] ?? "http://172.16.96.100:8080/am/page/portal/realm/2e0d1ff9-c070-4e05-a07e-23325461e9db/login/pc/index.html?stage=1&language=en-US";
@@ -76,6 +77,21 @@ namespace Login
         public static string Password => ConfigurationManager.AppSettings["password"] ?? "123456";
 
         public static string Explore=> ConfigurationManager.AppSettings["explorer"] ?? "chrome";
+
+        private static string RetryStr => ConfigurationManager.AppSettings["retry"] ?? "3";
+
+        public static int Retry
+        {
+            get
+            {
+                int num = 0;
+                if (int.TryParse(RetryStr, out num))
+                {
+                    return num;
+                }
+                return 1;
+            }
+        }
 
         public static bool IsNetConnected => ConnectBaidu();
 
