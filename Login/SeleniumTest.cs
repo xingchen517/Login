@@ -46,7 +46,7 @@ namespace Login
 
                 if (revisit.Displayed)
                 {
-                    revisit.Click();
+                    revisit.Click();                    
                 }
                 else
                 {
@@ -55,6 +55,7 @@ namespace Login
 
                     login.Click();//.SendKeys("Cheese");                
                 }
+                System.Threading.Thread.Sleep(10000);
                 //if (revisit.Displayed)
                 //{
                 //    revisit.Click();

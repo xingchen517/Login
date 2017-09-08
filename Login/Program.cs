@@ -8,17 +8,14 @@ namespace Login
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
         static void Main()
         {
             int retry = SeleniumTest.Retry;
             while (!SeleniumTest.Run()&&retry-->0)
             {
                 Console.WriteLine($"going to retry::{SeleniumTest.Retry-retry+1}");
-            }            
+            }
+            //Console.Read();
         }
     }
 }
